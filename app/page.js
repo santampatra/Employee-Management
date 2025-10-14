@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+
 const page = () => {
   return (
     <div className='flex gap-10 bg-black text-white'>

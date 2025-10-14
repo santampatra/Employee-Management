@@ -66,7 +66,7 @@ export default function Dashboard() {
         </div>
 
         {/* Main Info */}
-        <div className="md:col-start-3 md:col-span-4 md:row-span-3 rounded-2xl bg-gradient-to-b from-white to-gray-100 p-4 sm:p-5 md:p-6 shadow-md flex flex-col justify-center">
+        <div className="md:col-start-3 md:col-span-4 md:row-span-3 rounded-2xl bg-gradient-to-b from-[#F7F7F7] to-[#EDEDED] p-4 sm:p-5 md:p-6 shadow-md flex flex-col justify-center">
           <div className="flex flex-wrap justify-between gap-4">
             <div>
               <div className="text-xs text-gray-400 tracking-wide">NAME</div>

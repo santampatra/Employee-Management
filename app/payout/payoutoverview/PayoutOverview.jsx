@@ -21,7 +21,7 @@ export default function PayoutOverview() {
       {/* PAYOUT CARDS */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         {/* Card 1 */}
-        <div className="bg-gradient-to-br from-blue-600 to-cyan-400 text-white rounded-xl p-4 shadow-md">
+        <div className="bg-gradient-to-br from-[#000BA3] to-[#1085A2] text-white rounded-xl p-4 shadow-md">
           <div className="text-xs opacity-90">DATE</div>
           <h3 className="text-base sm:text-lg font-semibold mt-1">
             4 October, 2025
@@ -42,7 +42,7 @@ export default function PayoutOverview() {
         </div>
 
         {/* Card 3 */}
-        <div className="bg-gradient-to-br from-orange-600 to-red-400 text-white rounded-xl p-4 shadow-md flex flex-col justify-center">
+        <div className="bg-gradient-to-br from-[#E48249] to-[#993800] text-white rounded-xl p-4 shadow-md flex flex-col justify-center">
           <div className="text-xs opacity-80">DELAYED</div>
           <h3 className="text-lg sm:text-xl font-semibold mt-1 leading-snug">
             3 Delays Detected

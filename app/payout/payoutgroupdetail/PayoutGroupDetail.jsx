@@ -56,7 +56,7 @@ export default function PayoutGroupDetail() {
           </div>
 
           {/* STATUS CARD */}
-          <div className="md:col-span-2 bg-green-900 text-white p-5 rounded-xl shadow-md flex flex-col justify-center">
+          <div className="md:col-span-2 bg-gradient-to-br from-[#0F1C00] to-[#284B00] text-white p-5 rounded-xl shadow-md flex flex-col justify-center">
             <div className="text-[11px] opacity-80 uppercase tracking-wide">
               Status: Upcoming
             </div>
@@ -66,7 +66,7 @@ export default function PayoutGroupDetail() {
           </div>
 
           {/* DELAY CARD */}
-          <div className="md:col-span-2 bg-gradient-to-br from-orange-600 to-red-500 text-white p-5 rounded-xl shadow-md flex flex-col justify-center">
+          <div className="md:col-span-2 bg-gradient-to-br from-[#E48249] to-[#993800] text-white p-5 rounded-xl shadow-md flex flex-col justify-center">
             <div className="text-[11px] opacity-80 uppercase tracking-wide">Delays</div>
             <h3 className="text-base font-semibold mt-1 leading-snug">
               3 Delays Detected

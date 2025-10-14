@@ -7,10 +7,9 @@ const Navbar = () => {
       <h3>Pioneer</h3>
       <div className='flex gap-10 text-white'>
         <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/product">Product</Link>
+        <Link href="/payout/payoutgroupdetail">Payout Group Details</Link>
         <Link href="/payout/payoutoverview">Payout Overview</Link>
-        <Link href="/payout/payoutallgroups">payoutallgroups</Link>
+        <Link href="/payout/payoutallgroups">Payout All Groups</Link>
         <Link href="/dashboard">Dashboard</Link>
       </div>
     </div>
