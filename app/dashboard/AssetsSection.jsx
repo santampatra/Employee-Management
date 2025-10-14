@@ -19,8 +19,8 @@ function LaptopIllustration({ className = "w-24 h-16" }) {
       />
       <defs>
         <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0" stopColor="#8B5CF6" stopOpacity="1" />
-          <stop offset="1" stopColor="#06B6D4" stopOpacity="1" />
+          <stop offset="0" stopColor="#8B5CF6" />
+          <stop offset="1" stopColor="#06B6D4" />
         </linearGradient>
       </defs>
     </svg>
@@ -30,34 +30,25 @@ function LaptopIllustration({ className = "w-24 h-16" }) {
 export default function AssetsSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Dummy data for modal assets
   const availableAssets = [
     "MacBook Pro 2020",
-    "MacBook Pro 2020", 
-    "MacBook Pro 2020", 
-    "MacBook Pro 2020", 
-    "MacBook Pro 2020", 
+    "MacBook Pro 2020",
+    "MacBook Pro 2020",
+    "MacBook Pro 2020",
+    "MacBook Pro 2020",
     "MacBook Pro 2020",
   ];
 
   return (
     <section className="bg-white px-4 md:px-8 py-8 md:py-10">
-      {/* Header - consistent with Dashboard */}
+      {/* Header */}
       <header className="flex items-center justify-between mb-6 md:mb-8">
-        <div className="text-[17px] text-[#000000]">Assets</div>
-        <div className="hidden md:flex items-center gap-4">
-        </div>
+        <div className="text-[17px] text-[#000000] font-medium">Assets</div>
       </header>
 
-      {/* Grid like Dashboard cards */}
-      <div
-        className="
-          grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4
-          lg:gap-5 lg:h-auto
-          transition-all duration-300
-        "
-      >
-        {/* Asset 1 */}
+      {/* Dashboard Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 transition-all duration-300">
+        {/* Asset Card */}
         <div className="rounded-2xl bg-gradient-to-b from-white to-gray-100 shadow-md p-6 flex flex-col items-center justify-center">
           <LaptopIllustration />
           <h3 className="mt-4 text-gray-800 font-medium text-[15px]">
@@ -65,7 +56,7 @@ export default function AssetsSection() {
           </h3>
         </div>
 
-        {/* Add Asset Card (Dashboard-style) */}
+        {/* Add Asset Card */}
         <button
           onClick={() => setIsModalOpen(true)}
           className="rounded-2xl border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100
@@ -79,45 +70,50 @@ export default function AssetsSection() {
         </button>
       </div>
 
-      {/* 🪟 Modal overlay */}
+      {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl shadow-2xl w-[90%] max-w-2xl p-6 md:p-8 relative">
-            {/* Header */}
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-lg font-medium text-gray-800">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+          <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md p-8">
+            {/* Header Row */}
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-semibold text-gray-800">
                 Assign New Asset
               </h3>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 hover:text-gray-800"
-                aria-label="Close modal"
-              >
-                ✕
-              </button>
+
+              {/* Icons on same side (right) */}
+              <div className="flex items-center gap-3">
+                {/* + Button */}
+                <button
+                  type="button"
+                  className="bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md text-2xl leading-none"
+                  aria-label="Add new asset"
+                >
+                  +
+                </button>
+
+                {/* ✕ Button (Red) */}
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md text-2xl leading-none"
+                  aria-label="Close modal"
+                >
+                  ⨯
+                </button>
+              </div>
             </div>
 
-            {/* Grid of assets in modal */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {/* Grid of assets */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
               {availableAssets.map((name, index) => (
                 <div
                   key={index}
-                  className="rounded-xl border border-gray-200 bg-white p-4 flex flex-col items-center justify-center hover:shadow-md transition-all duration-200 cursor-pointer"
+                  className="rounded-xl border border-gray-200 bg-white p-4 flex flex-col items-center justify-center hover:shadow-md transition-all cursor-pointer"
                 >
                   <LaptopIllustration className="w-20 h-14" />
-                  <p className="text-xs text-gray-700 mt-2">{name}</p>
+                  <p className="text-xs text-gray-700 mt-2 text-center">{name}</p>
                 </div>
               ))}
             </div>
-
-            {/* Add new asset floating button */}
-            <button
-              type="button"
-              className="absolute top-6 right-6 bg-blue-600 hover:bg-blue-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md"
-              aria-label="Add new asset"
-            >
-              +
-            </button>
           </div>
         </div>
       )}
