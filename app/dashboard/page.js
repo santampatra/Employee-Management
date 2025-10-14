@@ -1,5 +1,4 @@
-"use client"; // required because you’re using interactive components
-
+"use client";
 import React from "react";
 import Sidebar from '../componenets/Sidebar';
 import Dashboard from "./Dashboard";
@@ -17,7 +16,6 @@ export default function DashboardPage() {
         <Dashboard />
         <AssetsSection />
         <PayrollHistory />
-      
       </main>
     </div>
   );

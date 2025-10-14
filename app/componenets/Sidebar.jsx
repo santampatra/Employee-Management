@@ -1,7 +1,7 @@
 import React from "react";
 
-/* Icons */
-const IconPeople = ({ className = "w-5 h-5" }) => (
+/* === Icons === */
+const IconPeople = ({ className = "w-4 h-4" }) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -33,7 +33,7 @@ const IconPeople = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
-const IconBrief = ({ className = "w-5 h-5" }) => (
+const IconBrief = ({ className = "w-4 h-4" }) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -59,12 +59,7 @@ const IconBrief = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
-/**
- * Responsive Sidebar → Top Navbar (mobile)
- *
- * - md+ : Sidebar (same as before)
- * - <md : Top fixed navbar
- */
+/* === Sidebar Component === */
 export default function Sidebar() {
   const topItems = [
     { key: "employees", label: "Employees", icon: <IconPeople /> },
@@ -83,28 +78,24 @@ export default function Sidebar() {
     { key: "documents", label: "Documents", icon: <IconBrief /> },
   ];
 
-  // Items shown in mobile top navbar
-  const mobileItems = [
-    ...topItems,
-    ...monitoringItems.slice(0, 3), // attendance, worklogs, goals
-  ];
+  const mobileItems = [...topItems, ...monitoringItems.slice(0, 3)];
 
   return (
     <>
-      {/* ===== Desktop Sidebar ===== */}
-      <aside className="hidden md:flex flex-col w-72 min-h-screen bg-gray-50 px-6 py-10">
-        <h1 className="text-4xl font-extrabold tracking-tight text-black mb-8">
+      {/* ===== Desktop Sidebar (Smaller) ===== */}
+      <aside className="hidden md:flex flex-col w-56 min-h-screen bg-gray-50 px-4 py-8">
+        <h1 className="text-2xl font-extrabold tracking-tight text-black mb-6">
           People
         </h1>
 
         {/* Top group */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {topItems.map((it) => (
             <button
               key={it.key}
-              className="w-full flex items-center gap-4 px-6 py-3 rounded-full bg-white border border-gray-200 shadow-sm text-gray-700 text-sm"
+              className="w-full flex items-center gap-3 px-4 py-2.5 rounded-full bg-white border border-gray-200 shadow-sm text-gray-700 text-xs hover:bg-gray-50 transition"
             >
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white shadow-inner ring-1 ring-white/40">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white shadow-inner ring-1 ring-gray-200">
                 {it.icon}
               </span>
               <span className="flex-1 text-left">{it.label}</span>
@@ -113,17 +104,17 @@ export default function Sidebar() {
         </div>
 
         {/* MONITORING */}
-        <div className="mt-8">
-          <p className="text-xs tracking-widest text-gray-500 mb-4">
+        <div className="mt-6">
+          <p className="text-[10px] tracking-widest text-gray-500 mb-3">
             MONITORING
           </p>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {monitoringItems.map((it) => (
               <button
                 key={it.key}
-                className="w-full flex items-center gap-4 px-6 py-3 rounded-full text-white text-sm shadow-md bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-500 hover:brightness-95 transition"
+                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-full text-white text-xs shadow-md bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-500 hover:brightness-95 transition"
               >
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 ring-1 ring-white/20">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/10 ring-1 ring-white/20">
                   {it.icon}
                 </span>
                 <span className="flex-1 text-left">{it.label}</span>
@@ -133,17 +124,17 @@ export default function Sidebar() {
         </div>
 
         {/* FUNCTIONS */}
-        <div className="mt-8">
-          <p className="text-xs tracking-widest text-gray-500 mb-4">
+        <div className="mt-6">
+          <p className="text-[10px] tracking-widest text-gray-500 mb-3">
             FUNCTIONS
           </p>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {functionItems.map((it) => (
               <button
                 key={it.key}
-                className="w-full flex items-center gap-4 px-6 py-3 rounded-full text-white text-sm shadow-md bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-500 hover:brightness-95 transition"
+                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-full text-white text-xs shadow-md bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-500 hover:brightness-95 transition"
               >
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 ring-1 ring-white/20">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/10 ring-1 ring-white/20">
                   {it.icon}
                 </span>
                 <span className="flex-1 text-left">{it.label}</span>
@@ -152,7 +143,7 @@ export default function Sidebar() {
           </div>
         </div>
 
-        <div className="mt-8 text-xs text-gray-400">&nbsp;</div>
+        <div className="mt-6 text-xs text-gray-400">&nbsp;</div>
       </aside>
 
       {/* ===== Mobile Top Navbar ===== */}
@@ -169,14 +160,14 @@ export default function Sidebar() {
                 <span className="inline-flex items-center justify-center w-6 h-6 mb-1">
                   {it.icon}
                 </span>
-                <span className="text-[11px]">{it.label}</span>
+                <span className="text-[10px]">{it.label}</span>
               </button>
             ))}
           </div>
         </div>
       </nav>
 
-      {/* Add padding so content isn't hidden under navbar */}
+      {/* padding for mobile navbar */}
       <div className="h-14 md:hidden" />
     </>
   );
