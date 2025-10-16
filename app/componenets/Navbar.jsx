@@ -30,7 +30,7 @@ const Navbar = () => {
             href="/payout/payroll"
             className="hover:text-gray-300 transition"
             >
-              PayRoll
+              Payroll
           </Link>
           <Link
             href="/payout/payoutgroupdetail"

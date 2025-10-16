@@ -8,7 +8,7 @@ const page = () => {
       <Link href="/payout/payoutoverview">PayoutOverview</Link>
       <Link href="/payout/payoutallgroups">PayoutAllGroups</Link>
       <Link href="/payout/payoutgroupdetail">PayoutGroupDetail</Link>
-      <Link href="/payout/payroll">PayRoll</Link>
+      <Link href="/payout/payroll">Payroll</Link>
     </div>
   )
 }
