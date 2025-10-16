@@ -82,19 +82,19 @@ export default function AssetsSection() {
 
               {/* Icons on same side (right) */}
               <div className="flex items-center gap-3">
-                {/* + Button */}
+                {/* + Button (Light Blue) */}
                 <button
                   type="button"
-                  className="bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md text-2xl leading-none"
+                  className="bg-blue-100 hover:bg-blue-200 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center shadow-sm text-2xl leading-none transition-all"
                   aria-label="Add new asset"
                 >
                   +
                 </button>
 
-                {/* ✕ Button (Red) */}
+                {/* ⨯ Button (Light Red) */}
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md text-2xl leading-none"
+                  className="bg-red-100 hover:bg-red-200 text-red-600 w-10 h-10 rounded-full flex items-center justify-center shadow-sm text-2xl leading-none transition-all"
                   aria-label="Close modal"
                 >
                   ⨯

@@ -2,6 +2,17 @@
 import React from "react";
 
 export default function PayoutOverview() {
+  const months = ["August", "September", "October"];
+  const currentMonth = "September";
+  const events = { 5: 2, 16: 4, 19: 1 };
+  const weeks = [
+    { weekNo: 36, days: [31, 1, 2, 3, 4, 5, 6] },
+    { weekNo: 37, days: [7, 8, 9, 10, 11, 12, 13] },
+    { weekNo: 38, days: [14, 15, 16, 17, 18, 19, 20] },
+    { weekNo: 39, days: [21, 22, 23, 24, 25, 26, 27] },
+    { weekNo: 40, days: [28, 29, 30, "", "", "", ""] },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50 px-3 sm:px-5 md:px-8 py-5 md:py-8">
       {/* HEADER */}
@@ -97,29 +108,81 @@ export default function PayoutOverview() {
         </table>
       </section>
 
-      {/* CALENDAR */}
-      <section className="bg-white rounded-xl shadow-sm p-5">
-        <h3 className="text-gray-700 font-semibold mb-3 text-base">
-          Release Calendar
-        </h3>
-        <div className="grid grid-cols-7 text-center text-gray-600 text-xs sm:text-sm">
-          {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
-            <div key={d} className="font-semibold mb-1">
-              {d}
+      {/* === RELEASE CALENDAR (same structure as Payroll) === */}
+      <section className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-sm text-gray-700 font-semibold">
+            Release Calendar
+          </h3>
+
+          <div className="flex gap-8">
+            {months.map((m) => (
+              <button
+                key={m}
+                className={`text-sm pb-1 ${
+                  m === currentMonth
+                    ? "text-gray-900 font-medium border-b border-gray-900"
+                    : "text-gray-400"
+                }`}
+              >
+                {m}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="overflow-x-auto">
+          <div className="min-w-[900px] md:min-w-full">
+            {/* Header row */}
+            <div className="grid grid-cols-[100px_repeat(7,1fr)] text-center text-sm text-gray-500 mb-4">
+              <div className="text-left pl-6">Week | Days</div>
+              <div>Sunday</div>
+              <div>Monday</div>
+              <div>Tuesday</div>
+              <div>Wednesday</div>
+              <div>Thursday</div>
+              <div>Friday</div>
+              <div>Saturday</div>
             </div>
-          ))}
-          {Array.from({ length: 30 }, (_, i) => (
-            <div
-              key={i}
-              className={`p-1.5 rounded-md ${
-                [13, 16, 26].includes(i + 1)
-                  ? "bg-orange-500 text-white font-bold"
-                  : "hover:bg-gray-100"
-              }`}
-            >
-              {i + 1}
+
+            {/* Calendar grid */}
+            <div className="grid grid-cols-[100px_repeat(7,1fr)] gap-y-6">
+              {weeks.map((row) => (
+                <React.Fragment key={row.weekNo}>
+                  {/* Week number and dotted line */}
+                  <div className="relative flex items-center pl-6 text-sm text-gray-400">
+                    {row.weekNo}
+                    <div className="absolute left-16 right-0 h-px border-t border-dotted border-gray-300/60" />
+                  </div>
+
+                  {/* Days */}
+                  {row.days.map((d, i) => {
+                    const isEmpty = d === "";
+                    const hasEvent = d && events[d];
+                    return (
+                      <div
+                        key={i}
+                        className="relative flex flex-col items-center justify-center h-12"
+                      >
+                        <span
+                          className={`text-sm font-medium ${
+                            isEmpty ? "text-gray-300" : "text-gray-900"
+                          }`}
+                        >
+                          {d}
+                        </span>
+                        {hasEvent && (
+                          <span className="mt-1 bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[11px] font-semibold">
+                            {events[d]}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </React.Fragment>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
     </div>

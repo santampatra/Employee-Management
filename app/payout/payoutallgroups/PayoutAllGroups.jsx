@@ -12,12 +12,12 @@ export default function PayoutAllGroups() {
   ];
 
   return (
-    <div className="min-h-screen bg-white flex justify-center px-3 sm:px-5 md:px-8 py-5 md:py-8">
+    <div className="min-h-screen bg-gray-50 flex justify-center px-3 sm:px-5 md:px-8 py-6 md:py-8">
       <div className="w-full max-w-[1000px]">
-        {/* HEADER */}
+        {/* === HEADER === */}
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3">
           <h2 className="text-gray-800 font-semibold text-lg md:text-xl">
-            Payouts &rsaquo; All Groups
+            Payouts › All Groups
           </h2>
 
           <div className="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1.5 shadow-inner w-full md:w-auto">
@@ -38,7 +38,7 @@ export default function PayoutAllGroups() {
           </div>
         </header>
 
-        {/* FILTER + SEARCH */}
+        {/* === FILTERS & SEARCH === */}
         <section className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 mb-6">
           <div className="flex gap-2">
             <button className="px-4 py-1.5 bg-gray-100 text-gray-800 rounded-full shadow-sm hover:bg-gray-200 transition text-xs sm:text-sm">
@@ -49,7 +49,7 @@ export default function PayoutAllGroups() {
             </button>
           </div>
 
-          <div className="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1.5 w-full md:w-60">
+          <div className="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1.5 w-full md:w-64 bg-white shadow-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4 text-gray-400"
@@ -66,48 +66,31 @@ export default function PayoutAllGroups() {
             </svg>
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Search groups..."
               className="outline-none w-full text-xs sm:text-sm text-gray-600 bg-transparent placeholder-gray-400"
             />
           </div>
         </section>
 
-        {/* TABLE */}
-        <section className="overflow-x-auto">
+        {/* === GROUPS TABLE === */}
+        <section className="overflow-x-auto rounded-xl shadow-sm bg-white">
           <div className="min-w-[850px]">
-            {/* Header (desktop) */}
-            <div
-              className="
-                hidden md:grid
-                grid-cols-[2fr_1fr_1fr_1fr]
-                text-gray-500 uppercase text-[11px] tracking-wider
-                px-6 py-2.5 border-b border-gray-200
-                bg-white sticky top-0 z-10
-              "
-            >
+            {/* Table Header */}
+            <div className="hidden md:grid grid-cols-[2fr_1fr_1fr_1fr] text-gray-500 uppercase text-[11px] tracking-wider px-6 py-2.5 border-b border-gray-200 bg-gray-100 sticky top-0 z-10">
               <div>Groups</div>
               <div className="text-center">Department</div>
               <div className="text-center">Amount</div>
               <div className="text-right mr-2">Action</div>
             </div>
 
-            {/* Rows */}
+            {/* Table Rows */}
             <div className="space-y-2.5">
               {rows.map((row, i) => (
                 <div
                   key={i}
-                  className="
-                    grid md:grid-cols-[2fr_1fr_1fr_1fr]
-                    grid-cols-1
-                    items-center px-5 py-3
-                    bg-gradient-to-b from-gray-100 to-gray-50
-                    rounded-xl shadow-inner
-                    hover:bg-gray-100 hover:shadow-md
-                    transition-all duration-200
-                    text-xs sm:text-sm
-                  "
+                  className="grid md:grid-cols-[2fr_1fr_1fr_1fr] grid-cols-1 items-center px-5 py-3 bg-gradient-to-b from-gray-100 to-gray-50 rounded-xl shadow-inner hover:bg-gray-100 hover:shadow-md transition-all duration-200 text-xs sm:text-sm"
                 >
-                  {/* Desktop layout */}
+                  {/* Desktop Layout */}
                   <div className="hidden md:block text-gray-800 font-medium truncate">
                     {row.group}
                   </div>
@@ -133,22 +116,26 @@ export default function PayoutAllGroups() {
                     </button>
                   </div>
 
-                  {/* Mobile layout */}
-                  <div className="md:hidden space-y-1.5">
+                  {/* Mobile Layout */}
+                  <div className="md:hidden space-y-1.5 bg-white/60 p-3 rounded-lg border border-gray-200 shadow-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-500">Group:</span>
-                      <span className="text-gray-800 font-medium">{row.group}</span>
+                      <span className="text-gray-800 font-medium text-right ml-2">
+                        {row.group}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-500">Department:</span>
-                      <span className="text-gray-600">{row.dept}</span>
+                      <span className="text-gray-600 text-right ml-2">{row.dept}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-500">Amount:</span>
-                      <span className="text-gray-800 font-semibold">{row.amount}</span>
+                      <span className="text-gray-800 font-semibold text-right ml-2">
+                        {row.amount}
+                      </span>
                     </div>
-                    <div className="flex justify-end mt-1">
-                      <button className="text-gray-700 hover:text-gray-900 text-xs sm:text-sm font-medium flex items-center gap-1">
+                    <div className="flex justify-end mt-2">
+                      <button className="text-blue-600 hover:text-blue-800 text-xs sm:text-sm font-medium flex items-center gap-1">
                         View
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
